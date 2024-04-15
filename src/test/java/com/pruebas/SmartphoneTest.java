@@ -3,7 +3,7 @@ package com.pruebas;
 import com.example.demo.service.SmartPhoneServiceImpl;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 
 public class SmartphoneTest {
@@ -21,5 +21,15 @@ public class SmartphoneTest {
     public void findOne(){
         SmartPhoneServiceImpl spsi = new SmartPhoneServiceImpl();
         assertThrows(IllegalArgumentException.class, () -> spsi.findOne(null));
+    }
+
+    @Test
+    public void countAssertAll(){
+        SmartPhoneServiceImpl spsi = new SmartPhoneServiceImpl();
+        assertAll(
+                () -> assertNotNull(spsi.count()),
+                () -> assertTrue(spsi.count()>0),
+                () -> assertEquals(3, (int) spsi.count())
+        );
     }
 }
