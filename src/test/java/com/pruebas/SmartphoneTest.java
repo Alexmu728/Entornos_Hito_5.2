@@ -12,8 +12,10 @@ public class SmartphoneTest {
     public void count(){
         SmartPhoneServiceImpl spsi= new SmartPhoneServiceImpl();
         assertNotNull(spsi.count());
-        assertTrue(spsi.count()>0);
-        assertTrue(spsi.count()==3);
+        //fallo
+        assertTrue(spsi.count()<0);
+        assertEquals(3, (int) spsi.count());
     }
+
 
 }
