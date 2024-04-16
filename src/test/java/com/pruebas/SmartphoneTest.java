@@ -2,14 +2,12 @@ package com.pruebas;
 
 import com.example.demo.service.SmartPhoneServiceImpl;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-
+@TestMethodOrder(MethodOrderer.class)
 public class SmartphoneTest {
 
 
@@ -25,7 +23,15 @@ public class SmartphoneTest {
     }
 
 
+    @AfterAll
+    public static void allAfter(){
+        System.out.println("@AfterAll");
+    }
 
+    @BeforeAll
+    public static void allBefore(){
+        System.out.println("@BeforeAll");
+    }
 
 
 
@@ -63,6 +69,8 @@ public class SmartphoneTest {
     //La opción AfterEach se utiliza para escoger un metodo que debe ejecutarse despues de cada metodo de la clase.
     //Con estas dos opciones nos podemos asegurar de tener un codigo y entorno mas controlado.
 
-    //La opcion BeforeAll se utiliza par
+    //La opcion BeforeAll se utiliza para escoger un metodo que debe ejecutarse una sola vez antes de los demas metodos de la clase.
+    //La opcion AfterAll se utiliza para escoger un metodo que debe ejecutarse una sola vez despues de los demas metodos de la clase.
+    //Con estas dos opciones nos podemos asegurar de tener un codigo y entorno mas limpio.
 
-}
+}   //La opcion TestMethodOrder se utiliza para especificar el orden en el que se deben ejecutar los metodos de la clase.
