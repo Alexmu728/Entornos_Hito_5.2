@@ -32,4 +32,6 @@ public class SmartphoneTest {
                 () -> assertEquals(3, (int) spsi.count())
         );
     }
+
+    //Una funcion lambda crea funciones personalizadas reutilizables y asigna un nombre
 }
